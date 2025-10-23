@@ -1,2 +1,6 @@
 streamlit
-supabase
+supabase-py
+gotrue
+postgrest
+storage3
+realtime
