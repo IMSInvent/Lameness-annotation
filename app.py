@@ -15,7 +15,7 @@ if page == "Supabase Konfiguráció":
     st.title("🔧 Supabase Konfiguráció")
     SUPABASE_URL = st.text_input("Supabase URL", "https://sxamusxpevlkmdvbuqua.supabase.co")
     SUPABASE_KEY = st.text_input("Supabase API Key", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN4YW11c3hwZXZsa21kdmJ1cXVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc5MzA0NDEsImV4cCI6MjA3MzUwNjQ0MX0.E-XSEUmXXGyP3Zh8xdrQJzmrQC_4Tl4lBV0xSfrHErI", type="password")
-    BUCKET_NAME = st.text_input("Képek bucket neve", "Szegmentalas_kepek")
+    BUCKET_NAME = st.text_input("Képek bucket neve", "santasag_annotalas")
     ANNOT_BUCKET = st.text_input("Annotációk bucket neve", "annotations")
 
     if st.button("Mentés"):
