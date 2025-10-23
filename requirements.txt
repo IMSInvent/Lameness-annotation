@@ -1,6 +1,2 @@
 streamlit==1.39.0
-supabase-py==2.4.0
-gotrue==2.4.0
-postgrest==0.10.6
-storage3==0.5.3
-realtime==1.0.3
+supabase==2.7.4
