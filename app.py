@@ -45,8 +45,8 @@ if "config_loaded" not in st.session_state:
     
     if default_config:
         # Supabase config
-        SUPABASE_URL = "https://sxamusxpevlkmdvbuqua.supabase.co"
-        SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN4YW11c3hwZXZsa21kdmJ1cXVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc5MzA0NDEsImV4cCI6MjA3MzUwNjQ0MX0.E-XSEUmXXGyP3Zh8xdrQJzmrQC_4Tl4lBV0xSfrHErI"
+        SUPABASE_URL = default_config.get("SUPABASE_URL", "")
+        SUPABASE_KEY = default_config.get("SUPABASE_KEY", "")
         
         # MinIO config
         MINIO_IP = default_config.get("MINIO_IP", "")
