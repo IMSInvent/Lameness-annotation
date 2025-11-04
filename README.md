@@ -1,21 +1,85 @@
 # Lameness-annotation
 
-Alkalmazás indítása: streamlit run app.py
+Sántaság annotációs alkalmazás MinIO object storage használatával.
 
-Az alapértelmezett értékekkel is használható.
+## Telepítés
 
-Szükséges Supabase beállítások:
+```bash
+pip install -r requirements.txt
+```
 
-*	Projekt Settings/Authentication/Users helyen user felvétele, email címmel és jelszóval
+## Alkalmazás indítása
 
-*	Képeket tartalmazó publikus storage
+```bash
+streamlit run app_minio.py
+```
 
-*	Annotálásokat tartalmazó publikus storage
+## Konfiguráció
 
-*	Képeket tartalmazó storagehoz SELECT policy beállítása (Storage/Policies)
+Az alkalmazás Supabase autentikációt és MinIO object storage-ot használ.
 
-*	Annotálásokat tartalmazó storagehoz SELECT, INSERT policy beállítása
+### Konfigurációs fájlok
 
-A fenti felületen meg kell adni a project URL-t (Project Settings/Data API), illetve a anon API kulcsot (Project Settings/API Keys), valamint a 2 bucket nevét. Ezután mentés és a bal oldali Navigációnál a kattints a Főoldalra.
+- **dev_config.yaml**: Fejlesztői konfiguráció (alapértelmezett értékekkel)
+- **config.yaml**: Sablon konfiguráció (üres értékekkel)
 
-Itt bekell jelentkezni a Supabase-ben beállított userrel és mehet is az annotálás. A mentésnél automatikusan vált, illetve eltűnik a kép a legördülő listából.
+### MinIO beállítások
+
+A konfigurációs fájlban a következő paramétereket kell megadni:
+
+```yaml
+# MinIO szerver kapcsolat
+MINIO_IP = ""
+MINIO_PORT = ""
+ACCESS_KEY = ""
+SECRET_KEY = ""
+
+# Képek bucket (preprocessed/oakd_43/YYYY/MM/DD/ struktúra)
+Minio_images_bucket = ""
+Minio_images_folder = ""
+
+# Annotációk bucket
+Minio_annot_bucket = ""
+Minio_annot_folder = ""
+```
+
+### Mappa struktúra
+
+A képek a következő struktúrában vannak tárolva:
+```
+preprocessed/
+  └── oakd_43/
+      └── YYYY/
+          └── MM/
+              └── DD/
+                  ├── image1.jpg
+                  ├── image2.jpg
+                  └── ...
+```
+
+Az annotációk ugyanilyen struktúrában kerülnek mentésre a `lameness` bucketbe, `.json` kiterjesztéssel.
+
+## Használat
+
+Az alkalmazás automatikusan betölti a konfigurációt a `dev_config.yaml` fájlból indításkor.
+
+1. **Főoldal**:
+   - Jelentkezz be Supabase email címmel és jelszóval
+   - Válassz egy képet a listából
+   - Szükség esetén forgasd el a képet a "Balra 90°" vagy "Jobbra 90°" gombokkal
+   - Annotáld a képet a megfelelő kategóriával
+   - Adj hozzá opcionális megjegyzést
+   - Kattints a "Mentés" gombra
+   - Az alkalmazás automatikusan a következő nem annotált képre vált
+
+
+### Annotációs kategóriák
+
+- sánta
+- nem sánta
+- nem eldönthető
+- súlypontáthelyezés
+- O-lábú
+- széttárt lábú
+- nincs rajta tehén
+

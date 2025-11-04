@@ -1,0 +1,16 @@
+# MINIO CONFIG
+MINIO_IP = "152.66.249.108"
+MINIO_PORT = "9090"
+ACCESS_KEY = "clientuser"
+SECRET_KEY = "bG5eFfdr9di7sCXM"
+
+# Bucket containing preprocessed images (preprocessed/oakd_43/YYYY/MM/DD/)
+Minio_images_bucket = "preprocessed"
+Minio_images_folder = "oakd_43"
+
+# Bucket for storing annotations
+Minio_annot_bucket = "lameness"
+Minio_annot_folder = "oakd_43"
+
+SUPABASE_URL = "https://sxamusxpevlkmdvbuqua.supabase.co"
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN4YW11c3hwZXZsa21kdmJ1cXVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc5MzA0NDEsImV4cCI6MjA3MzUwNjQ0MX0.E-XSEUmXXGyP3Zh8xdrQJzmrQC_4Tl4lBV0xSfrHErI"

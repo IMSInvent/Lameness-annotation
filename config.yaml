@@ -1,0 +1,13 @@
+# MINIO CONFIG
+MINIO_IP = ""
+MINIO_PORT = ""
+ACCESS_KEY = ""
+SECRET_KEY = ""
+
+# Bucket containing preprocessed images (preprocessed/oakd_43/YYYY/MM/DD/)
+Minio_images_bucket = ""
+Minio_images_folder = ""
+
+# Bucket for storing annotations
+Minio_annot_bucket = ""
+Minio_annot_folder = ""
