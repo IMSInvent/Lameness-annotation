@@ -302,7 +302,7 @@ if page == "Főoldal":
                     if st.session_state.rotation_angle != 0:
                         st.info(f"Forgatás: {st.session_state.rotation_angle}°")
                 
-                st.image(image, use_container_width=True)
+                st.image(image, use_column_width=True)
             except Exception as e:
                 st.error(f"Hiba a kép megjelenítése során: {e}")
                 st.stop()
